@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--        <bean id="userDao" class="com.liu.dao.impl.UserDaoImpl"-->
     <!--            init-method="init" destroy-method="destroy"></bean>-->
+    <!--静态工厂注入-->
     <!--    <bean id="userDao" class="com.liu.factory.StaticFactory" factory-method="getUserDao"></bean>-->
     <!--Spring自动创建一个DynamicFactory 对象-->
     <!--    <bean id="factory" class="com.liu.factory.DynamicFactory"></bean>-->
     <!--    <bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
-    <bean id="userDao" class="com.liu.dao.impl.UserDaoImpl"></bean>
-    <bean id="userService" class="com.liu.service.impl.UserServiceImpl"></bean>
+    <!--    DI:依赖注入↓-->
+    <!--    <bean id="userDao" class="com.liu.dao.impl.UserDaoImpl" p:username="张三" p:age="13">-->
+    <!--        <property name="username" value="张三"></property>-->
+    <!--        <property name="age" value="18"></property>-->
+    <!--    </bean>-->
+    <!--    <bean id="userService" class="com.liu.service.impl.UserServiceImpl" >-->
+    <!--&lt;!&ndash;        <property name="userDao" ref="userDao"></property>&ndash;&gt;&lt;!&ndash;利用P命名空间↑&ndash;&gt;-->
+    <!--    </bean>-->
+    <!--name:service 里面的!!属性名!!  ref:容器内部!!bean的id!!-->
+    <bean id="u1" class="com.liu.domain.User" p:username="张三" p:age="13"></bean>
+    <bean id="u2" class="com.liu.domain.User" p:username="李四" p:age="14"></bean>
+    <bean id="userDao" class="com.liu.dao.impl.UserDaoImpl" p:username="王五" p:age="21">
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="u1" value-ref="u1"></entry>
+                <entry key="u2" value-ref="u2"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="k1">k1</prop>
+                <prop key="k2">k2</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="userService" class="com.liu.service.impl.UserServiceImpl">
+        <!--如果不进行配置,则会使用UserService的无参构造-->
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+
 </beans>
