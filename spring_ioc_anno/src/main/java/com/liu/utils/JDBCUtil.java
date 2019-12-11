@@ -19,12 +19,12 @@ public class JDBCUtil {
     private String password;
 
     @Bean("dataSource")
-    public DataSource getDataSource() {
+    public DruidDataSource getDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(className);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:1433/itheima?serverTimezone=UTC&characterEncoding=utf8");
+        dataSource.setUsername("root");
+        dataSource.setPassword("wocaibuhuiba555");
         return dataSource;
     }
 }

@@ -1,5 +1,6 @@
 package com.liu.test;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.liu.conf.SpringConf;
 import com.liu.service.UserService;
 import com.liu.utils.JDBCUtil;
@@ -18,11 +19,11 @@ import javax.annotation.Resource;
 public class JunitTest {
     @Resource
     private UserService userService;
+    @Resource(name = "dataSource")
+    private DruidDataSource dataSource;
     @Test
     public void test1() throws Exception{
         userService.save();
-        ApplicationContext app=new AnnotationConfigApplicationContext(SpringConf.class);
-        JDBCUtil jdbcUtil = app.getBean(JDBCUtil.class);
-        System.out.println(jdbcUtil.getDataSource().getConnection());
+        System.out.println(dataSource.getConnection());
     }
 }
