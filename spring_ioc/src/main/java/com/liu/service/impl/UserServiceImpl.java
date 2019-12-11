@@ -2,12 +2,12 @@ package com.liu.service.impl;
 
 import com.liu.dao.UserDao;
 import com.liu.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
-
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }

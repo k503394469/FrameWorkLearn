@@ -16,7 +16,7 @@
     <!--        <property name="age" value="18"></property>-->
     <!--    </bean>-->
     <!--    <bean id="userService" class="com.liu.service.impl.UserServiceImpl" >-->
-    <!--&lt;!&ndash;        <property name="userDao" ref="userDao"></property>&ndash;&gt;&lt;!&ndash;利用P命名空间↑&ndash;&gt;-->
+    <!--        <property name="userDao" ref="userDao"></property>--><!--利用P命名空间↑-->
     <!--    </bean>-->
     <!--name:service 里面的!!属性名!!  ref:容器内部!!bean的id!!-->
     <bean id="u1" class="com.liu.domain.User" p:username="张三" p:age="13"></bean>

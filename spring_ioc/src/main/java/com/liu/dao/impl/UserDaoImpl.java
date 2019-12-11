@@ -2,11 +2,11 @@ package com.liu.dao.impl;
 
 import com.liu.dao.UserDao;
 import com.liu.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 public class UserDaoImpl implements UserDao {
     private List<String> list;
     private Map<String, User> userMap;
