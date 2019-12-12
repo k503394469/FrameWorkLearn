@@ -1,12 +1,12 @@
 package com.liu.conf;
 
-import com.liu.utils.JDBCUtil;
+import com.liu.utils.JdbcDataSource;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan("com.liu")
-@Import(JDBCUtil.class)
+@Import(JdbcDataSource.class)
 public class SpringConf {
 }

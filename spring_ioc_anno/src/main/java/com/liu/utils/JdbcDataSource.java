@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @PropertySource("classpath:druid.properties")
-public class JDBCUtil {
+public class JdbcDataSource {
     @Value("${driverClassName}")
     private String className;
     @Value("${url}")
