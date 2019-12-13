@@ -1,7 +1,9 @@
-package com.liu.proxy.aop.impl;
+package com.liu.proxy.anno.impl;
 
-import com.liu.proxy.aop.TargetInterface;
+import com.liu.proxy.anno.TargetInterface;
+import org.springframework.stereotype.Component;
 
+@Component("target")
 public class Target implements TargetInterface {
     @Override
     public void save() {
