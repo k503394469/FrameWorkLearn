@@ -4,19 +4,14 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping>
-          <factory-entry name="Entities" />
-        </datasource-mapping>
+        <datasource-mapping />
         <naming-strategy-map />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="applicationContext" removed="false">
+        <fileset id="fileset" name="ApplicationContext" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
-        </fileset>
-        <fileset id="fileset2" name="ApplicationContext Anno" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/applicationContext-anno.xml</file>
         </fileset>
       </configuration>
     </facet>
