@@ -4,6 +4,8 @@ import com.liu.service.UserService;
 import com.liu.utils.WebApplicationContextUTIL;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
@@ -20,8 +22,9 @@ public class UserServlet extends BaseController {
     //    @Resource(name = "userService")
 //    private UserService service;
     public void save(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletContext context = request.getServletContext();
-        ApplicationContext app = WebApplicationContextUTIL.getApp(context);
+        ServletContext context = this.getServletContext();
+//        ApplicationContext app = WebApplicationContextUTIL.getApp(context);
+//        WebApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(context);
         UserService service = (UserService) app.getBean("userService");
         service.save();
     }
