@@ -2,9 +2,11 @@ package com.liu.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.liu.utils.WebApplicationContextUTIL;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +15,10 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class BaseController extends HttpServlet {
-    ApplicationContext app=new ClassPathXmlApplicationContext("applicationContext.xml");
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String uri = req.getRequestURI();
         String methodName = uri.substring(uri.lastIndexOf('/')+1);
         try {
@@ -35,4 +38,5 @@ public class BaseController extends HttpServlet {
         }
         return json;
     }
+
 }
