@@ -9,18 +9,22 @@
         <!--表示只扫描com.liu包下的带有@Controller注解的类-->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-<!--    <bean id="freeMaker" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-<!--        <property name="templateLoaderPath" value="/html/"></property>-->
-<!--    </bean>-->
+
     <!--手动配置内部资源视图解析器-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<!--        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"></property>-->
         <property name="prefix" value="/jsp/"></property>
+<!--        <property name="prefix" value="/WEB-INF/"></property>-->
         <property name="suffix" value=".jsp"></property>
+        <property name="contentType" value="text/html;charset=utf-8"></property>
     </bean>
-<!--    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-<!--        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>-->
-<!--        <property name="suffix" value=".html"></property>-->
-<!--        <property name="contentType" value="text/html;charset=utf-8"></property>-->
+    <!--处理器映射配置返回对象-->
+<!--    <bean id="jsonAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+<!--        <property name="messageConverters">-->
+<!--            <list>-->
+<!--                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
+<!--            </list>-->
+<!--        </property>-->
 <!--    </bean>-->
+<!--mvc驱动注册-->
+    <mvc:annotation-driven/>
 </beans>
