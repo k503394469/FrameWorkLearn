@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
-
+@Deprecated
 public class BaseController extends HttpServlet {
     WebApplicationContext app = null;
     @Override

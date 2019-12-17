@@ -63,6 +63,7 @@
           <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.6.0-M1" />
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.6.0-M1" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.12.1" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.29" />
         </element>
       </element>
       <element id="directory" name="META-INF">
