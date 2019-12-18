@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/spring_ioc_anno/src/main/java/com/liu/conf/SpringConf.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring_ioc_anno/src/main/resources/jedis.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/spring_jdbc/src/test/java/com/liu/test/DataSourceConf.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_web_mvc/src/main/java/com/liu/controller/UserController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring_web_mvc/src/main/java/com/liu/web/BaseController.java" charset="UTF-8" />
   </component>
 </project>

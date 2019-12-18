@@ -8,7 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-
+@Deprecated
 @WebListener
 public class ContextListener implements ServletContextListener {
     @Override

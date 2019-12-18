@@ -5,6 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +20,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
     private ModelAndView modelAndView=new ModelAndView();
-    //Ìø×ªÒ³Ãæ
+    //è·³è½¬é¡µé¢
     @RequestMapping(value = "/save")
     public String save() {
         System.out.println("Controller save");
@@ -39,25 +44,25 @@ public class UserController {
     public String del(Model model) {
         System.out.println("Controller del");
 
-//        model.addAttribute("username","ye").addAttribute("password",new String("ÀÏÆÅ".getBytes("GBK"),"utf-8"));
-        model.addAttribute("username","ye").addAttribute("password","ÀÏÆÅ");
+//        model.addAttribute("username","ye").addAttribute("password",new String("è€å©†".getBytes("GBK"),"utf-8"));
+        model.addAttribute("username","ye").addAttribute("password","è€å©†");
         return "index";
     }
     @RequestMapping(value = "/batch")
     public String batch(HttpServletRequest request)throws Exception {
         System.out.println("Controller batch");
         request.setCharacterEncoding("utf-8");
-        request.setAttribute("password","ÀÏÆÅ!!!");
+        request.setAttribute("password","è€å©†!!!");
         return "index";
     }
-    //»Ø´«×Ö·û´®
+    //å›ä¼ å­—ç¬¦ä¸²
     @RequestMapping("/para1")
     public void para1(HttpServletResponse response) throws Exception{
         response.setContentType("text/html;charset=utf-8");
-        response.getWriter().print("<h1>»Ø´«1</h1>");
+        response.getWriter().print("<h1>å›ä¼ 1</h1>");
     }
     @RequestMapping("/para2")
-    @ResponseBody //¸æÖª¿ò¼Ü,¸Ã·½·¨Ö±½Ó·µ»ØÊı¾İ,²»½øĞĞÌø×ª
+    @ResponseBody //å‘ŠçŸ¥æ¡†æ¶,è¯¥æ–¹æ³•ç›´æ¥è¿”å›æ•°æ®,ä¸è¿›è¡Œè·³è½¬
     public String para2() throws Exception{
         return "response test";
     }
@@ -67,10 +72,11 @@ public class UserController {
         User user=new User();
         user.setName("liu");
         user.setAge(12);
-        return user;//¸ù¾İspring-mvc.xmlÅäÖÃµÄ²ÎÊı,×Ô¶¯×ª»»Îªjson
+        return user;//æ ¹æ®spring-mvc.xmlé…ç½®çš„å‚æ•°,è‡ªåŠ¨è½¬æ¢ä¸ºjson
     }
     @RequestMapping("/para4")
     @ResponseBody
+    //é…ç½®mvc:annotation-drivenæ ‡ç­¾ï¼Œè‡ªåŠ¨è½¬ä¸ºjson
     public List<User> para4() throws Exception{
         User user=new User();
         user.setName("liu");
@@ -79,4 +85,5 @@ public class UserController {
         userList.add(user);
         return userList;
     }
+
 }
