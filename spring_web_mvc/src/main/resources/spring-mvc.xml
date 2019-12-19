@@ -27,6 +27,6 @@
 <!--    </bean>-->
 <!--mvc驱动注册-->
     <mvc:annotation-driven/>
-<!--    <mvc:resources mapping="/js/**" location="/js/"/>-->
-    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
+<!--    <mvc:default-servlet-handler/>-->
 </beans>

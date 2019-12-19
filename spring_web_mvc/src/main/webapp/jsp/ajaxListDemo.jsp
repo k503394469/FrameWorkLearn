@@ -7,8 +7,7 @@
         var userList=new Array();
         userList.push({name:'zhangsan',age:12});
         userList.push({name:'lisi',age:22});
-        $.get("${pageContext.request.contextPath}/user/para9",JSON.stringify(userList),function (userList) {
-            $("body").html(userList);
+        $.post("${pageContext.request.contextPath}/user/para9",{userList:userList},function (userList) {
         },"json");
     </script>
 </head>

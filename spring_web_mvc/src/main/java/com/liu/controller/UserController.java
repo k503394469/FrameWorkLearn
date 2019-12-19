@@ -116,7 +116,7 @@ public class UserController {
     @RequestMapping("/para9")
     @ResponseBody
     //通过ajax传入一个json格式的userList,需要加入@RequestBody
-    public List<User> para9(@RequestBody List<User> userList){
-        return userList;
+    public void para9(@RequestBody List<User> userList){
+        System.out.println(userList);
     }
 }
