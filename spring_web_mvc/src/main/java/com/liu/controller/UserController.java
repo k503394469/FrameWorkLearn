@@ -1,8 +1,10 @@
 package com.liu.controller;
 
 import com.liu.domain.User;
+import com.liu.domain.UserVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
@@ -85,5 +87,36 @@ public class UserController {
         userList.add(user);
         return userList;
     }
-
+    //获取参数
+    @RequestMapping("/para5")
+    @ResponseBody
+    public String para5(String username,int age){
+        String res=username+age;
+        return res;
+    }
+    @RequestMapping("/para6")
+    @ResponseBody
+    //传的name名,如果和POJO内部属性名对应,则会自动封装
+    public User para6(User user){
+        return user;
+    }
+    @RequestMapping("/para7")
+    @ResponseBody
+    //传的name名,如果和数组属性名对应,则会自动封装
+    public int[] para7(User user,int []data){
+        System.out.println(user);
+        return data;
+    }
+    @RequestMapping("/para8")
+    @ResponseBody
+    //传的name名,要用,name="list[角标].属性名"方式,然后SpringMVC自动封装为一个VO的POJO类
+    public UserVO para8(UserVO vo){
+        return vo;
+    }
+    @RequestMapping("/para9")
+    @ResponseBody
+    //通过ajax传入一个json格式的userList,需要加入@RequestBody
+    public List<User> para9(@RequestBody List<User> userList){
+        return userList;
+    }
 }
