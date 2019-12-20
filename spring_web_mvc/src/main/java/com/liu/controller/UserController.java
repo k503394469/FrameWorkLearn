@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -133,23 +135,44 @@ public class UserController {
 //        System.out.println(userList);
         return userList;
     }
-    @RequestMapping(value = "/para10",produces = "text/html;charset=utf-8")
+
+    @RequestMapping(value = "/para10", produces = "text/html;charset=utf-8")
     @ResponseBody
     //如果请求参数与业务方法参数名不一致,使用@RequestParam进行显式绑定
-    public String para10(@RequestParam(value = "name",required = false,defaultValue = "lisi") String username) {
+    public String para10(@RequestParam(value = "name", required = false, defaultValue = "lisi") String username) {
         System.out.println(username);
         return username;
     }
+
     //localhost:8080/spring/user/para11/zhangsan
     //使用restful风格
-    @RequestMapping(value = "/para11/{username}",produces = "text/html;charset=utf-8")
+    @RequestMapping(value = "/para11/{username}", produces = "text/html;charset=utf-8")
     @ResponseBody
     public String para11(@PathVariable String username) {
         System.out.println(username);
         return username;
     }
-//    @RequestMapping("/test")
+
+    //    @RequestMapping("/test")
 //    public String test(){
 //        return "forward:/user/para11/王五";
 //    }
+    @RequestMapping(value = "/para12", produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String para12(Date date) {
+        System.out.println(date);
+        return date.toString();
+    }
+    @RequestMapping(value = "/para13", produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String para13(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        String res=request+"\n"+response+"\n"+session;
+        return res;
+    }
+    @RequestMapping(value = "/para14")
+    @ResponseBody
+    public String para14(@RequestHeader("User-Agent") String browser,@CookieValue(value = "JSESSIONID",required = false) String sessionId) {
+        String res=browser+":"+sessionId;
+        return res;
+    }
 }

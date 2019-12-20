@@ -13,20 +13,19 @@
     <!--手动配置内部资源视图解析器-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/jsp/"></property>
-<!--        <property name="prefix" value="/WEB-INF/"></property>-->
+        <!--        <property name="prefix" value="/WEB-INF/"></property>-->
         <property name="suffix" value=".jsp"></property>
         <property name="contentType" value="text/html;charset=utf-8"></property>
     </bean>
-    <!--处理器映射配置返回对象-->
-<!--    <bean id="jsonAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-<!--        <property name="messageConverters">-->
-<!--            <list>-->
-<!--                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
-<!--mvc驱动注册-->
-    <mvc:annotation-driven/>
+    <!--声明转换器工厂-->
+    <bean id="converter" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dataConverter"/>
+            </set>
+        </property>
+    </bean>
+    <mvc:annotation-driven conversion-service="converter"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
-<!--    <mvc:default-servlet-handler/>-->
+    <!--    <mvc:default-servlet-handler/>-->
 </beans>
