@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/spring_ioc" />
     <file type="web" url="file://$PROJECT_DIR$/spring_ioc_anno" />
     <file type="web" url="file://$PROJECT_DIR$/spring_jdbc" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_interceptor" />
     <file type="web" url="file://$PROJECT_DIR$/spring_tx" />
     <file type="web" url="file://$PROJECT_DIR$/spring_tx_anno" />
     <file type="web" url="file://$PROJECT_DIR$/spring_web_mvc" />
@@ -23,6 +24,7 @@
         <option value="$PROJECT_DIR$/spring_tx/pom.xml" />
         <option value="$PROJECT_DIR$/spring_tx_anno/pom.xml" />
         <option value="$PROJECT_DIR$/spring_web_mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_interceptor/pom.xml" />
       </list>
     </option>
   </component>
