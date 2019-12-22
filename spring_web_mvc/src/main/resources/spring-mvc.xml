@@ -28,4 +28,13 @@
     <mvc:annotation-driven conversion-service="converter"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <!--    <mvc:default-servlet-handler/>-->
+    <!--文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--上传总文件大小-->
+        <property name="maxUploadSize" value="5242800"/>
+        <!--上传单个文件大小-->
+        <property name="maxUploadSizePerFile" value="5242800"/>
+        <!--文件编码类型-->
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
 </beans>

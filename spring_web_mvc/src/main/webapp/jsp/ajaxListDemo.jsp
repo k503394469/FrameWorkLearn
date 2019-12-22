@@ -21,7 +21,7 @@
                     $("body").append(data[i].age);
                 }
             }
-        })
+        });
     </script>
 </head>
 <body>

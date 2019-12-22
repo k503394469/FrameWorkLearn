@@ -10,11 +10,13 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -174,5 +176,24 @@ public class UserController {
     public String para14(@RequestHeader("User-Agent") String browser,@CookieValue(value = "JSESSIONID",required = false) String sessionId) {
         String res=browser+":"+sessionId;
         return res;
+    }
+    //uploadTest--单文件
+    @RequestMapping(value = "/para15")
+    @ResponseBody
+    public void para15(String name,MultipartFile uploadFile)throws Exception {
+        System.out.println(name);
+        String filename = uploadFile.getOriginalFilename();
+        uploadFile.transferTo(new File("I:\\uploadFiles\\"+filename));
+    }
+    //uploadTest--多文件
+    @RequestMapping(value = "/para16")
+    @ResponseBody
+    public void para16(String name,MultipartFile []uploadFiles)throws Exception {
+        System.out.println(name);
+        String fileName=null;
+        for (MultipartFile multipartFile : uploadFiles) {
+            fileName=multipartFile.getOriginalFilename();
+            multipartFile.transferTo(new File("I:\\uploadFiles\\"+fileName));
+        }
     }
 }
