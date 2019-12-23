@@ -5,5 +5,8 @@
 </head>
 <body>
 <h1>HelloWorld!!${name}</h1>
+<%
+    System.out.println("index");
+%>
 </body>
 </html>
