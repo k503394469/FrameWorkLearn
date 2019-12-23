@@ -8,22 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @Component("interceptor1")
 public class Interceptor1 implements HandlerInterceptor {
-    //Ä¿±êControllerÖ®Ç°Ö´ĞĞ
+    //ç›®æ ‡Controllerä¹‹å‰æ‰§è¡Œ
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("pre...");
         return true;
     }
-    //Ä¿±êControllerÖ®ºó,Ò³Ãæ·µ»ØÖµÖ®Ç°Ö´ĞĞ
+    // ç›®æ ‡Controllerä¹‹å,é¡µé¢è¿”å›å€¼ä¹‹å‰æ‰§è¡Œ
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         System.out.println("post...");
 
     }
-    //Õû¸ö¹ı³ÌÖ®ºóÖ´ĞĞ
+    //æ•´ä¸ªè¿‡ç¨‹ä¹‹åæ‰§è¡Œ
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("after...");
-
     }
 }
