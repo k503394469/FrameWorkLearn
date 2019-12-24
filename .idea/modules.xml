@@ -7,10 +7,12 @@
       <module fileurl="file://$PROJECT_DIR$/spring_ioc/spring_ioc.iml" filepath="$PROJECT_DIR$/spring_ioc/spring_ioc.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_ioc_anno/spring_ioc_anno.iml" filepath="$PROJECT_DIR$/spring_ioc_anno/spring_ioc_anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_jdbc/spring_jdbc.iml" filepath="$PROJECT_DIR$/spring_jdbc/spring_jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_exception/spring_mvc_exception.iml" filepath="$PROJECT_DIR$/spring_mvc_exception/spring_mvc_exception.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_mvc_interceptor/spring_mvc_interceptor.iml" filepath="$PROJECT_DIR$/spring_mvc_interceptor/spring_mvc_interceptor.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_tx/spring_tx.iml" filepath="$PROJECT_DIR$/spring_tx/spring_tx.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_tx_anno/spring_tx_anno.iml" filepath="$PROJECT_DIR$/spring_tx_anno/spring_tx_anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_web_mvc/spring_web_mvc.iml" filepath="$PROJECT_DIR$/spring_web_mvc/spring_web_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ss_project/ss_project.iml" filepath="$PROJECT_DIR$/ss_project/ss_project.iml" />
     </modules>
   </component>
 </project>

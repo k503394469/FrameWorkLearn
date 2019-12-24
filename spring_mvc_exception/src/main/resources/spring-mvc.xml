@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <mvc:annotation-driven/>
+    <!--    <mvc:default-servlet-handler/>-->
+    <context:component-scan base-package="com.liu.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--简单异常处理器-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+    <!--    &lt;!&ndash;默认错误视图&ndash;&gt;-->
+    <!--    <property name="defaultErrorView" value="error"/>-->
+    <!--    <property name="exceptionMappings">-->
+    <!--        <map>-->
+    <!--            &lt;!&ndash;根据不同的错误,跳转不同的页面,如果出现map里面没有的跳转,就会去找默认视图&ndash;&gt;-->
+    <!--            <entry key="java.lang.ClassCastException" value="error"/>-->
+    <!--        </map>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+    <!--自定义异常-->
+    <bean class="com.liu.exceptionResolver.MyExceptionResolver"/>
+</beans>
