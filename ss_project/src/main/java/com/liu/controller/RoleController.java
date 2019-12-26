@@ -15,6 +15,11 @@ import java.util.List;
 public class RoleController {
     @Resource(name = "roleService")
     private RoleService roleService;
+    @RequestMapping("/save")
+    public String save(Role role){
+        roleService.save(role);
+        return "redirect:/role/show_list";
+    }
     @RequestMapping("/show_list")
     public String findAll(Model model) {
         List<Role> roleList = roleService.findAll();

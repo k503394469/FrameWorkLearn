@@ -1,5 +1,7 @@
 package com.liu.domain;
 
+import java.util.List;
+
 public class User {
 
     private Long id;
@@ -7,6 +9,15 @@ public class User {
     private String email;
     private String password;
     private String phoneNum;
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;
@@ -47,7 +58,6 @@ public class User {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
-
     @Override
     public String toString() {
         return "User{" +
@@ -56,6 +66,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 }

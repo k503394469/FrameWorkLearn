@@ -19,4 +19,16 @@ public class RoleDaoImpl implements RoleDao {
         List<Role> roleList = jt.query(sql, new BeanPropertyRowMapper<>(Role.class));
         return roleList;
     }
+
+    @Override
+    public void save(Role role) {
+        String sql="insert into sys_role values(?,?,?)";
+        jt.update(sql,null,role.getRoleName(),role.getRoleDesc());
+    }
+
+    @Override
+    public List<Role> findRoleNameByUserId(Long id) {
+        String sql="select * from sys_user_role ur ,sys_role r where ur.roleId=r.id and ur.userId=?";
+        return jt.query(sql,new BeanPropertyRowMapper<>(Role.class),id);
+    }
 }
