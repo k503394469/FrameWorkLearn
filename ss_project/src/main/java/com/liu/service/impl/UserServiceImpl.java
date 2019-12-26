@@ -25,4 +25,16 @@ public class UserServiceImpl implements UserService {
         }
         return userList;
     }
+
+    @Override
+    public void saveUserByUserMapAndRoleId(User user, Long[] roleIds) {
+        Long userId=userDao.saveUser(user);
+        userDao.saveUserByUserIdAndRoleId(userId,roleIds);
+    }
+
+    @Override
+    public void delUser(Long userId) {
+        userDao.delFromRelation(userId);
+        userDao.delFromUser(userId);
+    }
 }
