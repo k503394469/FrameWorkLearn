@@ -22,9 +22,9 @@
         <property name="username" value="${user}"></property>
         <property name="password" value="${password}"></property>
     </bean>
-    <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <!--<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">-->
+    <!--    <property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
     <!--事务管理器-->
     <!--如果是hibernate或者其他框架,可能class会进行相应修改-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
